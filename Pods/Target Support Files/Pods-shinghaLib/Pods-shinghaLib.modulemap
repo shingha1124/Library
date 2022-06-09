@@ -1,0 +1,6 @@
+framework module Pods_shinghaLib {
+  umbrella header "Pods-shinghaLib-umbrella.h"
+
+  export *
+  module * { export * }
+}
