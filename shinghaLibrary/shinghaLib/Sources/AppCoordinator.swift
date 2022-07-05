@@ -11,8 +11,8 @@ import UIKit
 
 final class AppCoordinator: Coordinator {
     private let navigationController: UINavigationController
-    private lazy var mainCoordinator: MainCoordinator = {
-        let mainCoordinator = MainCoordinator(navigationController: navigationController)
+    private lazy var mainCoordinator: CategoryCoordinator = {
+        let mainCoordinator = CategoryCoordinator(navigationController: navigationController)
         return mainCoordinator
     }()
     
