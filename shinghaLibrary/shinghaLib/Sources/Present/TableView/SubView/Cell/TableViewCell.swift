@@ -8,13 +8,13 @@
 import RxSwift
 import UIKit
 
-final class ExampleTableViewCell: BaseTableViewCell, View {
+final class TableViewCell: BaseTableViewCell, View {
     private let title: UILabel = {
         let label = UILabel()
         return label
     }()
     
-    func bind(to viewModel: ExampleTableViewCellModel) {
+    func bind(to viewModel: TableViewCellModel) {
         viewModel.state.title
             .bind(to: title.rx.text)
             .disposed(by: disposeBag)

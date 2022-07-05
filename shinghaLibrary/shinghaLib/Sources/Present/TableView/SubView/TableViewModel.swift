@@ -9,14 +9,14 @@ import Foundation
 import RxRelay
 import RxSwift
 
-final class ExampleTableViewModel: ViewModel {
+final class TableViewModel: ViewModel {
     struct Action {
         let viewDidLoad = PublishRelay<Void>()
     }
     
     struct State {
-        let cellModels = PublishRelay<[ExampleTableViewCellModel]>()
-        let sectionModels = PublishRelay<[String: [ExampleTableViewCellModel]]>()
+        let cellModels = PublishRelay<[TableViewCellModel]>()
+        let sectionModels = PublishRelay<[String: [TableViewCellModel]]>()
         let reloadData = PublishRelay<Void>()
     }
     
@@ -26,25 +26,25 @@ final class ExampleTableViewModel: ViewModel {
     
     private let sampleData = [
         "SectionA": [
-            ExampleTableModel(title: "a1"),
-            ExampleTableModel(title: "a2"),
-            ExampleTableModel(title: "a3"),
-            ExampleTableModel(title: "a4"),
-            ExampleTableModel(title: "a5")
+            TableModel(title: "a1"),
+            TableModel(title: "a2"),
+            TableModel(title: "a3"),
+            TableModel(title: "a4"),
+            TableModel(title: "a5")
         ],
         "SectionB": [
-            ExampleTableModel(title: "b1"),
-            ExampleTableModel(title: "b2"),
-            ExampleTableModel(title: "b3"),
-            ExampleTableModel(title: "b4"),
-            ExampleTableModel(title: "b5")
+            TableModel(title: "b1"),
+            TableModel(title: "b2"),
+            TableModel(title: "b3"),
+            TableModel(title: "b4"),
+            TableModel(title: "b5")
         ],
         "SectionC": [
-            ExampleTableModel(title: "c1"),
-            ExampleTableModel(title: "c2"),
-            ExampleTableModel(title: "c3"),
-            ExampleTableModel(title: "c4"),
-            ExampleTableModel(title: "c5")
+            TableModel(title: "c1"),
+            TableModel(title: "c2"),
+            TableModel(title: "c3"),
+            TableModel(title: "c4"),
+            TableModel(title: "c5")
         ]
     ]
     
@@ -53,7 +53,7 @@ final class ExampleTableViewModel: ViewModel {
         let cellModels = action.viewDidLoad
             .withUnretained(self)
             .map { model, _ in
-                model.sampleData.flatMap { $0.value.compactMap { ExampleTableViewCellModel(model: $0) } }
+                model.sampleData.flatMap { $0.value.compactMap { TableViewCellModel(model: $0) } }
             }
             .share()
         
@@ -69,8 +69,8 @@ final class ExampleTableViewModel: ViewModel {
         let sectionModels = action.viewDidLoad
             .withUnretained(self)
             .map { model, _ in
-                model.sampleData.reduce(into: [String: [ExampleTableViewCellModel]]()) {
-                    $0[$1.key] = $1.value.map { ExampleTableViewCellModel(model: $0) }
+                model.sampleData.reduce(into: [String: [TableViewCellModel]]()) {
+                    $0[$1.key] = $1.value.map { TableViewCellModel(model: $0) }
                 }
             }
             .share()

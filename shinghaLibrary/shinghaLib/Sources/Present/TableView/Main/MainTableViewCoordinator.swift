@@ -49,15 +49,15 @@ extension MainTableViewCoordinator {
     }
     
     private func presentBaseTableView() {
-        let viewModel = ExampleTableViewModel(coordinator: self)
-        let viewController = ExampleTableViewController()
+        let viewModel = TableViewModel(coordinator: self)
+        let viewController = TableViewController()
         viewController.viewModel = viewModel
         navigationController.pushViewController(viewController, animated: true)
     }
     
     private func presentRxTableView() {
-        let viewModel = ExampleTableViewModel(coordinator: self)
-        let viewController = ExampleRxTableViewController()
+        let viewModel = TableViewModel(coordinator: self)
+        let viewController = RxTableViewController()
         viewController.viewModel = viewModel
         navigationController.pushViewController(viewController, animated: true)
     }

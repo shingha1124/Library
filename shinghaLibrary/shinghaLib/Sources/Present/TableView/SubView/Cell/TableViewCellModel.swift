@@ -9,7 +9,7 @@ import Foundation
 import RxRelay
 import RxSwift
 
-final class ExampleTableViewCellModel: ViewModel {
+final class TableViewCellModel: ViewModel {
     struct Action {
         let loadData = PublishRelay<Void>()
     }
@@ -22,7 +22,7 @@ final class ExampleTableViewCellModel: ViewModel {
     let state = State()
     let disposeBag = DisposeBag()
     
-    init(model: ExampleTableModel) {
+    init(model: TableModel) {
         action.loadData
             .map { model.title }
             .bind(to: state.title)

@@ -8,19 +8,19 @@
 import RxSwift
 import UIKit
 
-final class ExampleTableViewController: BaseViewController, View {
+final class TableViewController: BaseViewController, View {
     
     let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(ExampleTableViewCell.self, forCellReuseIdentifier: ExampleTableViewCell.identifier)
+        tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
         return tableView
     }()
     
-    private let tableDataSource = ExampleTableViewDataSource()
+    private let tableDataSource = TableViewDataSource()
     
     var disposeBag = DisposeBag()
     
-    func bind(to viewModel: ExampleTableViewModel) {
+    func bind(to viewModel: TableViewModel) {
         
         rx.viewDidLoad
             .bind(to: viewModel.action.viewDidLoad)
@@ -51,11 +51,11 @@ final class ExampleTableViewController: BaseViewController, View {
     }
 }
 
-final class ExampleTableViewDataSource: NSObject, UITableViewDataSource {
+final class TableViewDataSource: NSObject, UITableViewDataSource {
     
-    private var models: [ExampleTableViewCellModel] = []
+    private var models: [TableViewCellModel] = []
     
-    func updateModels(_ models: [ExampleTableViewCellModel]) {
+    func updateModels(_ models: [TableViewCellModel]) {
         self.models = models
     }
     
@@ -68,7 +68,7 @@ final class ExampleTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExampleTableViewCell.identifier, for: indexPath) as? ExampleTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as? TableViewCell else {
             return UITableViewCell()
         }
         

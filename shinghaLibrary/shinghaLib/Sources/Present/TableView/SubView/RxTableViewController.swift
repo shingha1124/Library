@@ -8,24 +8,24 @@
 import RxSwift
 import UIKit
 
-final class ExampleRxTableViewController: BaseViewController, View {
+final class RxTableViewController: BaseViewController, View {
     
     let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(ExampleTableViewCell.self, forCellReuseIdentifier: ExampleTableViewCell.identifier)
+        tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
         return tableView
     }()
     
     var disposeBag = DisposeBag()
     
-    func bind(to viewModel: ExampleTableViewModel) {
+    func bind(to viewModel: TableViewModel) {
         
         rx.viewDidLoad
             .bind(to: viewModel.action.viewDidLoad)
             .disposed(by: disposeBag)
         
         viewModel.state.cellModels
-            .bind(to: tableView.rx.items(cellIdentifier: ExampleTableViewCell.identifier, cellType: ExampleTableViewCell.self)) { _, model, cell in
+            .bind(to: tableView.rx.items(cellIdentifier: TableViewCell.identifier, cellType: TableViewCell.self)) { _, model, cell in
                 cell.viewModel = model
             }
             .disposed(by: disposeBag)

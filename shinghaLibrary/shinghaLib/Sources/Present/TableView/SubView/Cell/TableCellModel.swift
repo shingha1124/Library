@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct ExampleTableModel {
+struct TableModel {
     let title: String
 }
