@@ -1,5 +1,5 @@
 //
-//  ExampleTableViewController.swift
+//  SectionTableViewController.swift
 //  shinghaLib
 //
 //  Created by seongha shin on 2022/07/05.
@@ -8,7 +8,7 @@
 import RxSwift
 import UIKit
 
-final class TableViewController: BaseViewController, View {
+final class SectionTableViewController: BaseViewController, View {
     
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -16,7 +16,7 @@ final class TableViewController: BaseViewController, View {
         return tableView
     }()
     
-    private let tableDataSource = TableViewDataSource()
+    private let tableDataSource = SectionTableViewDataSource()
     
     var disposeBag = DisposeBag()
     
@@ -26,7 +26,7 @@ final class TableViewController: BaseViewController, View {
             .bind(to: viewModel.action.viewDidLoad)
             .disposed(by: disposeBag)
         
-        viewModel.state.cellModels
+        viewModel.state.sectionModels
             .bind(onNext: tableDataSource.updateModels(_:))
             .disposed(by: disposeBag)
         
@@ -36,7 +36,7 @@ final class TableViewController: BaseViewController, View {
     }
     
     override func attribute() {
-        title = TableViewType.cellWithDataSource.title
+        title = TableViewType.sectionWithDataSource.title
         view.backgroundColor = .white
         tableView.dataSource = tableDataSource
     }
@@ -51,20 +51,20 @@ final class TableViewController: BaseViewController, View {
     }
 }
 
-final class TableViewDataSource: NSObject, UITableViewDataSource {
+final class SectionTableViewDataSource: NSObject, UITableViewDataSource {
     
-    private var models: [TableViewCellModel] = []
+    private var models: [SectionTableModel] = []
     
-    func updateModels(_ models: [TableViewCellModel]) {
+    func updateModels(_ models: [SectionTableModel]) {
         self.models = models
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        models.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        models.count
+        models[section].cellModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,7 +72,11 @@ final class TableViewDataSource: NSObject, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.viewModel = models[indexPath.item]
+        cell.viewModel = models[indexPath.section].cellModels[indexPath.item]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        models[section].name
     }
 }

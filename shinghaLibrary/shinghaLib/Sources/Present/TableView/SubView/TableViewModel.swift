@@ -16,7 +16,7 @@ final class TableViewModel: ViewModel {
     
     struct State {
         let cellModels = PublishRelay<[TableViewCellModel]>()
-        let sectionModels = PublishRelay<[String: [TableViewCellModel]]>()
+        let sectionModels = PublishRelay<[SectionTableModel]>()
         let reloadData = PublishRelay<Void>()
     }
     
@@ -25,27 +25,27 @@ final class TableViewModel: ViewModel {
     let disposeBag = DisposeBag()
     
     private let sampleData = [
-        "SectionA": [
+        SampleDataModel(name: "SectionA", cellModels: [
             TableModel(title: "a1"),
             TableModel(title: "a2"),
             TableModel(title: "a3"),
             TableModel(title: "a4"),
             TableModel(title: "a5")
-        ],
-        "SectionB": [
+        ]),
+        SampleDataModel(name: "SectionB", cellModels: [
             TableModel(title: "b1"),
             TableModel(title: "b2"),
             TableModel(title: "b3"),
             TableModel(title: "b4"),
             TableModel(title: "b5")
-        ],
-        "SectionC": [
+        ]),
+        SampleDataModel(name: "SectionC", cellModels: [
             TableModel(title: "c1"),
             TableModel(title: "c2"),
             TableModel(title: "c3"),
             TableModel(title: "c4"),
             TableModel(title: "c5")
-        ]
+        ])
     ]
     
     init(coordinator: MainTableViewCoordinator) {
@@ -53,7 +53,7 @@ final class TableViewModel: ViewModel {
         let cellModels = action.viewDidLoad
             .withUnretained(self)
             .map { model, _ in
-                model.sampleData.flatMap { $0.value.compactMap { TableViewCellModel(model: $0) } }
+                model.sampleData.flatMap { $0.cellModels.map { TableViewCellModel(model: $0) } }
             }
             .share()
         
@@ -69,8 +69,8 @@ final class TableViewModel: ViewModel {
         let sectionModels = action.viewDidLoad
             .withUnretained(self)
             .map { model, _ in
-                model.sampleData.reduce(into: [String: [TableViewCellModel]]()) {
-                    $0[$1.key] = $1.value.map { TableViewCellModel(model: $0) }
+                model.sampleData.map {
+                    SectionTableModel(name: $0.name, cellModels: $0.cellModels.map { TableViewCellModel(model: $0) })
                 }
             }
             .share()

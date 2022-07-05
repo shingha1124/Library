@@ -17,8 +17,9 @@ final class MainTableViewCoordinator: Coordinator {
     let present = PublishRelay<TableViewType>()
     
     private lazy var presentEvents: [TableViewType: () -> Void] = [
-        .withDataSource: presentBaseTableView,
-        .withRxSwift: presentRxTableView
+        .cellWithDataSource: presentBaseTableView,
+        .cellWithRxSwift: presentRxTableView,
+        .sectionWithDataSource: presentSectionTableView
     ]
     
     init(navigationController: UINavigationController) {
@@ -52,6 +53,7 @@ extension MainTableViewCoordinator {
         let viewModel = TableViewModel(coordinator: self)
         let viewController = TableViewController()
         viewController.viewModel = viewModel
+        navigationController.topViewController?.navigationItem.backButtonTitle = ""
         navigationController.pushViewController(viewController, animated: true)
     }
     
@@ -59,6 +61,15 @@ extension MainTableViewCoordinator {
         let viewModel = TableViewModel(coordinator: self)
         let viewController = RxTableViewController()
         viewController.viewModel = viewModel
+        navigationController.topViewController?.navigationItem.backButtonTitle = ""
+        navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    private func presentSectionTableView() {
+        let viewModel = TableViewModel(coordinator: self)
+        let viewController = SectionTableViewController()
+        viewController.viewModel = viewModel
+        navigationController.topViewController?.navigationItem.backButtonTitle = ""
         navigationController.pushViewController(viewController, animated: true)
     }
 }

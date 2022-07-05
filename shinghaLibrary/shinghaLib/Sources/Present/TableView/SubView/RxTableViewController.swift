@@ -32,7 +32,7 @@ final class RxTableViewController: BaseViewController, View {
     }
     
     override func attribute() {
-        title = "With RxSwift"
+        title = TableViewType.cellWithRxSwift.title
         view.backgroundColor = .white
     }
     

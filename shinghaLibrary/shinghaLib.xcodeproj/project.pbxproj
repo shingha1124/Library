@@ -21,6 +21,8 @@
 		E0A2ADE02874618F00C93CB1 /* TableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A2ADDF2874618F00C93CB1 /* TableViewCellModel.swift */; };
 		E0A2ADE22874623300C93CB1 /* TableCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A2ADE12874623300C93CB1 /* TableCellModel.swift */; };
 		E0A2ADE4287466CC00C93CB1 /* RxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A2ADE3287466CC00C93CB1 /* RxTableViewController.swift */; };
+		E0A2ADE62874711700C93CB1 /* SectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A2ADE52874711700C93CB1 /* SectionTableViewController.swift */; };
+		E0A2ADE82874752600C93CB1 /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A2ADE72874752600C93CB1 /* TableHeaderView.swift */; };
 		E0D0268D287416C900F7137A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D02670287416C800F7137A /* BaseViewController.swift */; };
 		E0D0268E287416C900F7137A /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D02671287416C800F7137A /* BaseTableViewCell.swift */; };
 		E0D0268F287416C900F7137A /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D02672287416C800F7137A /* BaseCollectionViewCell.swift */; };
@@ -98,6 +100,8 @@
 		E0A2ADDF2874618F00C93CB1 /* TableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellModel.swift; sourceTree = "<group>"; };
 		E0A2ADE12874623300C93CB1 /* TableCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellModel.swift; sourceTree = "<group>"; };
 		E0A2ADE3287466CC00C93CB1 /* RxTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTableViewController.swift; sourceTree = "<group>"; };
+		E0A2ADE52874711700C93CB1 /* SectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewController.swift; sourceTree = "<group>"; };
+		E0A2ADE72874752600C93CB1 /* TableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderView.swift; sourceTree = "<group>"; };
 		E0BE4BCE27FA76BD0076403C /* shinghaLib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shinghaLib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0BE4BDF27FA76BE0076403C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0D02670287416C800F7137A /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -264,6 +268,7 @@
 				E0A2ADDE2874601300C93CB1 /* Cell */,
 				E0D026F7287417DB00F7137A /* TableViewController.swift */,
 				E0A2ADE3287466CC00C93CB1 /* RxTableViewController.swift */,
+				E0A2ADE52874711700C93CB1 /* SectionTableViewController.swift */,
 				E0D02681287416C800F7137A /* TableViewModel.swift */,
 			);
 			path = SubView;
@@ -275,6 +280,7 @@
 				E0D02682287416C800F7137A /* TableViewCell.swift */,
 				E0A2ADDF2874618F00C93CB1 /* TableViewCellModel.swift */,
 				E0A2ADE12874623300C93CB1 /* TableCellModel.swift */,
+				E0A2ADE72874752600C93CB1 /* TableHeaderView.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -763,6 +769,7 @@
 				E0D0269A287416C900F7137A /* TableViewCell.swift in Sources */,
 				E0D0269D287416C900F7137A /* TableViewCellView.swift in Sources */,
 				E0D026DC287416E600F7137A /* NSAttributedString+Extension.swift in Sources */,
+				E0A2ADE82874752600C93CB1 /* TableHeaderView.swift in Sources */,
 				E0D026EE287416E600F7137A /* PlaceholderTextView.swift in Sources */,
 				E01B523F281E4A21009918AE /* EndPoint.swift in Sources */,
 				E0D02699287416C900F7137A /* TableViewModel.swift in Sources */,
@@ -787,6 +794,7 @@
 				E0D0268E287416C900F7137A /* BaseTableViewCell.swift in Sources */,
 				E0D026D9287416E600F7137A /* UIColor+Extension.swift in Sources */,
 				E01B5230281E49CA009918AE /* NetworkApiRepository.swift in Sources */,
+				E0A2ADE62874711700C93CB1 /* SectionTableViewController.swift in Sources */,
 				E0D02691287416C900F7137A /* CategoryType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
