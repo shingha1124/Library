@@ -9,7 +9,7 @@ import RxRelay
 import RxSwift
 import UIKit
 
-final class TableViewCoordinator: Coordinator {
+final class MainTableViewCoordinator: Coordinator {
     private let navigationController: UINavigationController
     let disposeBag = DisposeBag()
     var childCoordinators = [Coordinator]()
@@ -17,7 +17,8 @@ final class TableViewCoordinator: Coordinator {
     let present = PublishRelay<TableViewType>()
     
     private lazy var presentEvents: [TableViewType: () -> Void] = [
-        .baseTableView: presentBaseTableView
+        .withDataSource: presentBaseTableView,
+        .withRxSwift: presentRxTableView
     ]
     
     init(navigationController: UINavigationController) {
@@ -39,7 +40,7 @@ final class TableViewCoordinator: Coordinator {
     }
 }
 
-extension TableViewCoordinator {
+extension MainTableViewCoordinator {
     private func presentMainView() {
         let viewModel = MainTableViewModel(coordinator: self)
         let viewController = MainTableViewController()
@@ -48,9 +49,16 @@ extension TableViewCoordinator {
     }
     
     private func presentBaseTableView() {
-//        let viewModel = ExampleTableViewModel(coordinator: self)
-//        let viewController = ExampleTableViewController()
-//        viewController.viewModel = viewModel
-//        navigationController.pushViewController(viewController, animated: true)
+        let viewModel = ExampleTableViewModel(coordinator: self)
+        let viewController = ExampleTableViewController()
+        viewController.viewModel = viewModel
+        navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    private func presentRxTableView() {
+        let viewModel = ExampleTableViewModel(coordinator: self)
+        let viewController = ExampleRxTableViewController()
+        viewController.viewModel = viewModel
+        navigationController.pushViewController(viewController, animated: true)
     }
 }

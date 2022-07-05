@@ -19,7 +19,7 @@ final class CategoryCoordinator: Coordinator {
     let presentView = PublishRelay<CategoryType>()
     
     private lazy var subCoordinators: [CategoryType: Coordinator] = [
-        .tableView: TableViewCoordinator(navigationController: navigationController)
+        .tableView: MainTableViewCoordinator(navigationController: navigationController)
     ]
     
     init(navigationController: UINavigationController) {

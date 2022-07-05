@@ -18,6 +18,9 @@
 		E01B523D281E4A21009918AE /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01B5239281E4A21009918AE /* HTTPMethod.swift */; };
 		E01B523E281E4A21009918AE /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01B523A281E4A21009918AE /* ApiResult.swift */; };
 		E01B523F281E4A21009918AE /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01B523B281E4A21009918AE /* EndPoint.swift */; };
+		E0A2ADE02874618F00C93CB1 /* ExampleTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A2ADDF2874618F00C93CB1 /* ExampleTableViewCellModel.swift */; };
+		E0A2ADE22874623300C93CB1 /* ExampleTableCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A2ADE12874623300C93CB1 /* ExampleTableCellModel.swift */; };
+		E0A2ADE4287466CC00C93CB1 /* ExampleRxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A2ADE3287466CC00C93CB1 /* ExampleRxTableViewController.swift */; };
 		E0D0268D287416C900F7137A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D02670287416C800F7137A /* BaseViewController.swift */; };
 		E0D0268E287416C900F7137A /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D02671287416C800F7137A /* BaseTableViewCell.swift */; };
 		E0D0268F287416C900F7137A /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D02672287416C800F7137A /* BaseCollectionViewCell.swift */; };
@@ -35,7 +38,7 @@
 		E0D0269C287416C900F7137A /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D02685287416C800F7137A /* MainTableViewController.swift */; };
 		E0D0269D287416C900F7137A /* TableViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D02687287416C800F7137A /* TableViewCellView.swift */; };
 		E0D0269E287416C900F7137A /* TableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D02688287416C800F7137A /* TableViewCellViewModel.swift */; };
-		E0D0269F287416C900F7137A /* TableViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D02689287416C800F7137A /* TableViewCoordinator.swift */; };
+		E0D0269F287416C900F7137A /* MainTableViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D02689287416C800F7137A /* MainTableViewCoordinator.swift */; };
 		E0D026A0287416C900F7137A /* MainTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D0268A287416C800F7137A /* MainTableViewModel.swift */; };
 		E0D026A1287416C900F7137A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D0268C287416C800F7137A /* Coordinator.swift */; };
 		E0D026D5287416E600F7137A /* Combine+UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D026A4287416E600F7137A /* Combine+UITextField+Extension.swift */; };
@@ -92,6 +95,9 @@
 		E01B5239281E4A21009918AE /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		E01B523A281E4A21009918AE /* ApiResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
 		E01B523B281E4A21009918AE /* EndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		E0A2ADDF2874618F00C93CB1 /* ExampleTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTableViewCellModel.swift; sourceTree = "<group>"; };
+		E0A2ADE12874623300C93CB1 /* ExampleTableCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTableCellModel.swift; sourceTree = "<group>"; };
+		E0A2ADE3287466CC00C93CB1 /* ExampleRxTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleRxTableViewController.swift; sourceTree = "<group>"; };
 		E0BE4BCE27FA76BD0076403C /* shinghaLib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shinghaLib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0BE4BDF27FA76BE0076403C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0D02670287416C800F7137A /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -111,7 +117,7 @@
 		E0D02685287416C800F7137A /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		E0D02687287416C800F7137A /* TableViewCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellView.swift; sourceTree = "<group>"; };
 		E0D02688287416C800F7137A /* TableViewCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModel.swift; sourceTree = "<group>"; };
-		E0D02689287416C800F7137A /* TableViewCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCoordinator.swift; sourceTree = "<group>"; };
+		E0D02689287416C800F7137A /* MainTableViewCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCoordinator.swift; sourceTree = "<group>"; };
 		E0D0268A287416C800F7137A /* MainTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewModel.swift; sourceTree = "<group>"; };
 		E0D0268C287416C800F7137A /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E0D026A4287416E600F7137A /* Combine+UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Combine+UITextField+Extension.swift"; sourceTree = "<group>"; };
@@ -252,6 +258,27 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		E0A2ADDD2874600600C93CB1 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				E0A2ADDE2874601300C93CB1 /* Cell */,
+				E0D026F7287417DB00F7137A /* ExampleTableViewController.swift */,
+				E0A2ADE3287466CC00C93CB1 /* ExampleRxTableViewController.swift */,
+				E0D02681287416C800F7137A /* ExampleTableViewModel.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		E0A2ADDE2874601300C93CB1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E0D02682287416C800F7137A /* ExampleTableViewCell.swift */,
+				E0A2ADDF2874618F00C93CB1 /* ExampleTableViewCellModel.swift */,
+				E0A2ADE12874623300C93CB1 /* ExampleTableCellModel.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		E0BE4BC527FA76BD0076403C = {
 			isa = PBXGroup;
 			children = (
@@ -325,24 +352,22 @@
 		E0D0267E287416C800F7137A /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				E0D026F7287417DB00F7137A /* ExampleTableViewController.swift */,
-				E0D02681287416C800F7137A /* ExampleTableViewModel.swift */,
-				E0D02682287416C800F7137A /* ExampleTableViewCell.swift */,
-				E0D02683287416C800F7137A /* Base */,
+				E0A2ADDD2874600600C93CB1 /* SubView */,
+				E0D02683287416C800F7137A /* Main */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
 		};
-		E0D02683287416C800F7137A /* Base */ = {
+		E0D02683287416C800F7137A /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				E0D02686287416C800F7137A /* View */,
 				E0D02684287416C800F7137A /* TableViewType.swift */,
+				E0D02689287416C800F7137A /* MainTableViewCoordinator.swift */,
 				E0D02685287416C800F7137A /* MainTableViewController.swift */,
-				E0D02689287416C800F7137A /* TableViewCoordinator.swift */,
 				E0D0268A287416C800F7137A /* MainTableViewModel.swift */,
 			);
-			path = Base;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		E0D02686287416C800F7137A /* View */ = {
@@ -721,10 +746,12 @@
 				E0D0268D287416C900F7137A /* BaseViewController.swift in Sources */,
 				E0E66328286491A30084FD56 /* AppDelegate.swift in Sources */,
 				E0D026EB287416E600F7137A /* UserIdVelidate.swift in Sources */,
+				E0A2ADE22874623300C93CB1 /* ExampleTableCellModel.swift in Sources */,
 				E0D026EF287416E600F7137A /* PaddingLabel.swift in Sources */,
 				E01B523D281E4A21009918AE /* HTTPMethod.swift in Sources */,
 				E0D026F1287416E600F7137A /* Log.swift in Sources */,
 				E01B5231281E49CA009918AE /* URLSessionProtocol.swift in Sources */,
+				E0A2ADE4287466CC00C93CB1 /* ExampleRxTableViewController.swift in Sources */,
 				E0D026DF287416E600F7137A /* Optional+Extension.swift in Sources */,
 				E0D026E2287416E600F7137A /* Result+Extension.swift in Sources */,
 				E0D02692287416C900F7137A /* CategoryViewModel.swift in Sources */,
@@ -753,7 +780,8 @@
 				E0D026F5287416E600F7137A /* DecodedBy.swift in Sources */,
 				E0D026D6287416E600F7137A /* Combine+UITextView+Extension.swift in Sources */,
 				E0D026EC287416E600F7137A /* BaseValidate.swift in Sources */,
-				E0D0269F287416C900F7137A /* TableViewCoordinator.swift in Sources */,
+				E0A2ADE02874618F00C93CB1 /* ExampleTableViewCellModel.swift in Sources */,
+				E0D0269F287416C900F7137A /* MainTableViewCoordinator.swift in Sources */,
 				E0D026D7287416E600F7137A /* Combine+UIConrtol+Extension.swift in Sources */,
 				E0D026E4287416E600F7137A /* PreviewView.swift in Sources */,
 				E0D0268E287416C900F7137A /* BaseTableViewCell.swift in Sources */,

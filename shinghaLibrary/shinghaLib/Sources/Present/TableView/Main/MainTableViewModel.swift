@@ -22,7 +22,7 @@ final class MainTableViewModel: ViewModel {
     let state = State()
     let disposeBag = DisposeBag()
     
-    init(coordinator: TableViewCoordinator) {
+    init(coordinator: MainTableViewCoordinator) {
         let cellViewModels = action.viewDidLoad
             .map { TableViewType.allCases.map { TableViewCellViewModel(type: $0) } }
             .share()
