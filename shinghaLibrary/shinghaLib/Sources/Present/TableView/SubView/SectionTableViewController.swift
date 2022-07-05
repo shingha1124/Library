@@ -13,10 +13,12 @@ final class SectionTableViewController: BaseViewController, View {
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
+        tableView.register(TableHeaderView.self, forHeaderFooterViewReuseIdentifier: TableHeaderView.identifier)
         return tableView
     }()
     
     private let tableDataSource = SectionTableViewDataSource()
+    private let tableDelegateHandler = SectionTableViewDelegate()
     
     var disposeBag = DisposeBag()
     
@@ -30,6 +32,10 @@ final class SectionTableViewController: BaseViewController, View {
             .bind(onNext: tableDataSource.updateModels(_:))
             .disposed(by: disposeBag)
         
+        viewModel.state.sectionModels
+            .bind(onNext: tableDelegateHandler.updateModels(_:))
+            .disposed(by: disposeBag)
+        
         viewModel.state.reloadData
             .bind(onNext: tableView.reloadData)
             .disposed(by: disposeBag)
@@ -39,6 +45,7 @@ final class SectionTableViewController: BaseViewController, View {
         title = TableViewType.sectionWithDataSource.title
         view.backgroundColor = .white
         tableView.dataSource = tableDataSource
+        tableView.delegate = tableDelegateHandler
     }
     
     override func layout() {
@@ -76,7 +83,24 @@ final class SectionTableViewDataSource: NSObject, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        models[section].name
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        models[section].name
+//    }
+}
+
+final class SectionTableViewDelegate: NSObject, UITableViewDelegate {
+    
+    private var models: [SectionTableModel] = []
+    
+    func updateModels(_ models: [SectionTableModel]) {
+        self.models = models
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: TableHeaderView.identifier) as? TableHeaderView else {
+            return UITableViewHeaderFooterView()
+        }
+        header.title = models[section].name
+        return header
     }
 }

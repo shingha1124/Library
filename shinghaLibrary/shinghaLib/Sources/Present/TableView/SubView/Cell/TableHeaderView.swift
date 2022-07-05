@@ -33,7 +33,7 @@ final class TableHeaderView: UITableViewHeaderFooterView {
     }
 
     func attribute() {
-        
+        contentView.backgroundColor = .gray
     }
 
     func layout() {
@@ -46,6 +46,7 @@ final class TableHeaderView: UITableViewHeaderFooterView {
         }
         
         contentView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(50)
         }
     }
