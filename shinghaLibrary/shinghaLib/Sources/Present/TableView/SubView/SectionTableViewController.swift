@@ -42,7 +42,7 @@ final class SectionTableViewController: BaseViewController, View {
     }
     
     override func attribute() {
-        title = TableViewType.sectionWithDataSource.title
+        title = TableViewType.dataSourceToSection.title
         view.backgroundColor = .white
         tableView.dataSource = tableDataSource
         tableView.delegate = tableDelegateHandler
@@ -71,7 +71,7 @@ final class SectionTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        models[section].cellModels.count
+        models[section].items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,7 +79,7 @@ final class SectionTableViewDataSource: NSObject, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.viewModel = models[indexPath.section].cellModels[indexPath.item]
+        cell.viewModel = models[indexPath.section].items[indexPath.item]
         return cell
     }
     

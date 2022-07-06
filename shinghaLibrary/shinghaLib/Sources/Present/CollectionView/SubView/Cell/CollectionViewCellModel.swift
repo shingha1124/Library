@@ -1,31 +1,31 @@
 //
-//  ExampleTableViewCellModel.swift
+//  CollectionViewCellModel.swift
 //  shinghaLib
 //
-//  Created by seongha shin on 2022/07/05.
+//  Created by seongha shin on 2022/07/06.
 //
 
 import Foundation
 import RxRelay
 import RxSwift
 
-final class TableViewCellModel: ViewModel {
+final class CollectionViewCellModel: ViewModel {
     struct Action {
         let loadData = PublishRelay<Void>()
     }
     
     struct State {
-        let title = PublishRelay<String>()
+        let backgroundColor = PublishRelay<String>()
     }
     
     let action = Action()
     let state = State()
     let disposeBag = DisposeBag()
     
-    init(model: SampleTableData) {
+    init(data: SampleCollectionData) {
         action.loadData
-            .map { model.title }
-            .bind(to: state.title)
+            .map { data.hexColor }
+            .bind(to: state.backgroundColor)
             .disposed(by: disposeBag)
     }
 }

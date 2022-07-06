@@ -8,18 +8,21 @@
 import Foundation
 
 enum TableViewType: String, CaseIterable {
-    case cellWithDataSource
-    case cellWithRxSwift
-    case sectionWithDataSource
+    case dataSourceToCell
+    case rxSwiftToCell
+    case dataSourceToSection
+    case rxDataSourceToSection
     
     var title: String {
         switch self {
-        case .cellWithDataSource:
-            return "Cell With DataSources"
-        case .cellWithRxSwift:
-            return "Cell With RxSwift"
-        case .sectionWithDataSource:
-            return "Section With DataSources"
+        case .dataSourceToCell:
+            return "DataSources To Cell"
+        case .rxSwiftToCell:
+            return "RxSwift To Cell"
+        case .dataSourceToSection:
+            return "DataSources To Section"
+        case .rxDataSourceToSection:
+            return "RxDataSources To Section"
         }
     }
 }

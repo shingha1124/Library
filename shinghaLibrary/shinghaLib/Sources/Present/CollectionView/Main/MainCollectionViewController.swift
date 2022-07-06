@@ -1,38 +1,37 @@
 //
-//  ExampleRxTableViewController.swift
+//  MainCollectionViewController.swift
 //  shinghaLib
 //
-//  Created by seongha shin on 2022/07/05.
+//  Created by seongha shin on 2022/07/06.
 //
 
 import RxSwift
 import UIKit
 
-final class RxTableViewController: BaseViewController, View {
+final class MainCollectionViewController: BaseViewController, View {
     
-    let tableView: UITableView = {
+    private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
+        tableView.register(MainCollectionViewCell.self, forCellReuseIdentifier: MainCollectionViewCell.identifier)
         return tableView
     }()
     
     var disposeBag = DisposeBag()
     
-    func bind(to viewModel: TableViewModel) {
-        
+    func bind(to viewModel: MainCollectionViewModel) {
         rx.viewDidLoad
             .bind(to: viewModel.action.viewDidLoad)
             .disposed(by: disposeBag)
         
-        viewModel.state.cellModels
-            .bind(to: tableView.rx.items(cellIdentifier: TableViewCell.identifier, cellType: TableViewCell.self)) { _, model, cell in
+        viewModel.state.items
+            .bind(to: tableView.rx.items(cellIdentifier: MainCollectionViewCell.identifier, cellType: MainCollectionViewCell.self)) { _, model, cell in
                 cell.viewModel = model
             }
             .disposed(by: disposeBag)
     }
     
     override func attribute() {
-        title = TableViewType.rxSwiftToCell.title
+        title = "CollectionView"
         view.backgroundColor = .white
     }
     
@@ -40,8 +39,8 @@ final class RxTableViewController: BaseViewController, View {
         view.addSubview(tableView)
         
         tableView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
             $0.top.bottom.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
         }
     }
 }

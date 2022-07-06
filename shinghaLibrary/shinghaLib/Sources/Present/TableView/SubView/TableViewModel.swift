@@ -25,26 +25,26 @@ final class TableViewModel: ViewModel {
     let disposeBag = DisposeBag()
     
     private let sampleData = [
-        SampleDataModel(name: "SectionA", cellModels: [
-            TableModel(title: "a1"),
-            TableModel(title: "a2"),
-            TableModel(title: "a3"),
-            TableModel(title: "a4"),
-            TableModel(title: "a5")
+        SampleTableSectionData(name: "SectionA", cellModels: [
+            SampleTableData(title: "a1"),
+            SampleTableData(title: "a2"),
+            SampleTableData(title: "a3"),
+            SampleTableData(title: "a4"),
+            SampleTableData(title: "a5")
         ]),
-        SampleDataModel(name: "SectionB", cellModels: [
-            TableModel(title: "b1"),
-            TableModel(title: "b2"),
-            TableModel(title: "b3"),
-            TableModel(title: "b4"),
-            TableModel(title: "b5")
+        SampleTableSectionData(name: "SectionB", cellModels: [
+            SampleTableData(title: "b1"),
+            SampleTableData(title: "b2"),
+            SampleTableData(title: "b3"),
+            SampleTableData(title: "b4"),
+            SampleTableData(title: "b5")
         ]),
-        SampleDataModel(name: "SectionC", cellModels: [
-            TableModel(title: "c1"),
-            TableModel(title: "c2"),
-            TableModel(title: "c3"),
-            TableModel(title: "c4"),
-            TableModel(title: "c5")
+        SampleTableSectionData(name: "SectionC", cellModels: [
+            SampleTableData(title: "c1"),
+            SampleTableData(title: "c2"),
+            SampleTableData(title: "c3"),
+            SampleTableData(title: "c4"),
+            SampleTableData(title: "c5")
         ])
     ]
     
@@ -70,7 +70,7 @@ final class TableViewModel: ViewModel {
             .withUnretained(self)
             .map { model, _ in
                 model.sampleData.map {
-                    SectionTableModel(name: $0.name, cellModels: $0.cellModels.map { TableViewCellModel(model: $0) })
+                    SectionTableModel(name: $0.name, items: $0.cellModels.map { TableViewCellModel(model: $0) })
                 }
             }
             .share()

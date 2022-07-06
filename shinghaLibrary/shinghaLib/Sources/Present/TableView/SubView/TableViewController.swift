@@ -36,7 +36,7 @@ final class TableViewController: BaseViewController, View {
     }
     
     override func attribute() {
-        title = TableViewType.cellWithDataSource.title
+        title = TableViewType.dataSourceToCell.title
         view.backgroundColor = .white
         tableView.dataSource = tableDataSource
     }

@@ -17,9 +17,10 @@ final class MainTableViewCoordinator: Coordinator {
     let present = PublishRelay<TableViewType>()
     
     private lazy var presentEvents: [TableViewType: () -> Void] = [
-        .cellWithDataSource: presentBaseTableView,
-        .cellWithRxSwift: presentRxTableView,
-        .sectionWithDataSource: presentSectionTableView
+        .dataSourceToCell: presentDataSourceToCell,
+        .rxSwiftToCell: presentRxSwiftToCell,
+        .dataSourceToSection: presentDataSourceToSection,
+        .rxDataSourceToSection: presentRxDataSourceToSection
     ]
     
     init(navigationController: UINavigationController) {
@@ -49,7 +50,7 @@ extension MainTableViewCoordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    private func presentBaseTableView() {
+    private func presentDataSourceToCell() {
         let viewModel = TableViewModel(coordinator: self)
         let viewController = TableViewController()
         viewController.viewModel = viewModel
@@ -57,7 +58,7 @@ extension MainTableViewCoordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    private func presentRxTableView() {
+    private func presentRxSwiftToCell() {
         let viewModel = TableViewModel(coordinator: self)
         let viewController = RxTableViewController()
         viewController.viewModel = viewModel
@@ -65,9 +66,17 @@ extension MainTableViewCoordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    private func presentSectionTableView() {
+    private func presentDataSourceToSection() {
         let viewModel = TableViewModel(coordinator: self)
         let viewController = SectionTableViewController()
+        viewController.viewModel = viewModel
+        navigationController.topViewController?.navigationItem.backButtonTitle = ""
+        navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    private func presentRxDataSourceToSection() {
+        let viewModel = TableViewModel(coordinator: self)
+        let viewController = SectionRxTableViewController()
         viewController.viewModel = viewModel
         navigationController.topViewController?.navigationItem.backButtonTitle = ""
         navigationController.pushViewController(viewController, animated: true)

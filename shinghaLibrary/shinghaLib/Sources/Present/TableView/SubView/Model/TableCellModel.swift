@@ -6,17 +6,18 @@
 //
 
 import Foundation
+import RxDataSources
 
-struct TableModel {
+struct SampleTableData {
     let title: String
 }
 
-struct SampleDataModel {
+struct SampleTableSectionData {
     let name: String
-    let cellModels: [TableModel]
+    let cellModels: [SampleTableData]
 }
 
 struct SectionTableModel {
     let name: String
-    let cellModels: [TableViewCellModel]
+    let items: [TableViewCellModel]
 }

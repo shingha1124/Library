@@ -9,8 +9,14 @@ import Foundation
 
 enum CategoryType: String, CaseIterable {
     case tableView
+    case collectionView
     
     var title: String {
-        self.rawValue
+        switch self {
+        case .tableView:
+            return "TableView"
+        case .collectionView:
+            return "CollectionView"
+        }
     }
 }
